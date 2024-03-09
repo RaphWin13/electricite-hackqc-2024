@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <EquivalenceAnimation />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import EquivalenceAnimation from './components/equivalence-animations/EquivalenceAnimation.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    EquivalenceAnimation
   }
 }
 </script>
