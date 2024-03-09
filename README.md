@@ -1,11 +1,11 @@
-# electricite-hackqc-2024
+# Électricité HackQc 2024
 
-## Project setup
+## Project setup (Installé les packages)
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads for development (Pour rouler le code)
 ```
 npm run serve
 ```
