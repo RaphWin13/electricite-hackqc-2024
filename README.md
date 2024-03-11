@@ -50,6 +50,7 @@ This project involves setting up the server and the UI separately. Follow the st
      ```bash
      npm run serve
      ```
+     - The UI will run at [`localhost:8080`](http://localhost:8080).
 
 4. Production Build:
      ```bash
