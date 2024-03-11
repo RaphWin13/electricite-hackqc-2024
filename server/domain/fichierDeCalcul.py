@@ -30,7 +30,7 @@ def get_question(specific_type:int = None
 # ------------------- Conversions ----------------------- #
 def convert_GES_to_flights(ges: float)->float:
     """
-    Convert a ges (en tonnes) into a number of flights (MTL) YUL->CDG (Paris)
+    Convert a GES (en tonnes) into a number of flights (MTL) YUL->CDG (Paris)
     """
     # 1.5 tonnes per flight YUL -> CDG
     # https://calculator.carbonfootprint.com/calculator.aspx?tab=3 
@@ -46,3 +46,18 @@ def convert_energy_to_ges():
     # 34.5 g per kWh of energy
     # https://www.hydroquebec.com/developpement-durable/documentation-specialisee/taux-emission-ges.html#:~:text=Pour%20calculer%20ces%20derni%C3%A8res%20%C3%A9missions,l'%C3%A9lectricit%C3%A9%20achet%C3%A9e%20et%20import%C3%A9e.
     pass # Can use the ges column in the data
+
+# ------------------ Consumption per map sector -------------- #
+def consumption_per_sector():
+    """
+    Suppose the data has a new column which is the energy consumption
+    per hour, then we aggregate that per sector. TODO : Adapt the column name to sum
+    """
+    data = load_data("../infra/data/consommation-energetique-tous.csv")
+    aggregated_data = pd.DataFrame(columns=["Arrondissement", "Electricite","Emissions_GES"]) # TODO : éventuellement lat-long min pour le quadrilatère
+    # Loop over all sections of the map
+    for g, sector in data.groupby("Arrondissement"):
+        aggregated_data.loc[len(aggregated_data.index)] = [g, sector["Electricite"].sum(), sector["Emissions_GES"].sum()]
+
+    print(aggregated_data)
+consumption_per_sector()
