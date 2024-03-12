@@ -12,20 +12,22 @@ def load_data(string_path:str, sep:str=";"
 
 # --------------- Questions --------------------------#
 def get_question(specific_type:int = None
-                 )->str:
+                 )->tuple[str, float]:
     """
     Return a random question from the questions dataset.
     Type 1 questions are "Did you know"
     Type 2 questions are "Do you encourage this"
     """
     
-    questions = load_data("../infra/data/questions.csv") # Can we load this only once when building the project?
+    questions = load_data("infra/data/questions.csv") # Can we load this only once when building the project?
     # If we want a specific question type
     if specific_type is not None:
         questions = questions[questions["Type"]==specific_type]
     # Random index to generate a random question
     idx = np.random.randint(0, len(questions), 1)
-    return questions.loc[idx,"Question"].values[0]
+    quest = questions.loc[idx,"Question"].values[0]
+    type = questions.loc[idx,"Type"].values[0]
+    return quest, str(type) # Change les données str
 
 # ------------------- Conversions ----------------------- #
 def convert_GES_to_flights(ges: float)->float:
@@ -54,10 +56,17 @@ def consumption_per_sector():
     per hour, then we aggregate that per sector. TODO : Adapt the column name to sum
     """
     data = load_data("../infra/data/consommation-energetique-tous.csv")
-    aggregated_data = pd.DataFrame(columns=["Arrondissement", "Electricite","Emissions_GES"]) # TODO : éventuellement lat-long min pour le quadrilatère
+    aggregated_data = pd.DataFrame(columns=["Arrondissement", "Electricite","Emissions_GES"])
     # Loop over all sections of the map
     for g, sector in data.groupby("Arrondissement"):
         aggregated_data.loc[len(aggregated_data.index)] = [g, sector["Electricite"].sum(), sector["Emissions_GES"].sum()]
-
+        # TODO : Extract lat-long square coordinates (min and max in both directions)
     print(aggregated_data)
-consumption_per_sector()
+#consumption_per_sector()
+
+# En temps réel (recalculer)
+# - Ratio pour avoir la valeur par bâtisse le jour
+# - Prendre ces valeurs là pour aggréger
+# - Extraire min et max pour polygones
+# -- Map, connecter les questions
+# - coordonnées arrondissements

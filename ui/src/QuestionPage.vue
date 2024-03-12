@@ -2,8 +2,8 @@
     <v-container full-height class="w-50 px-10">
         <v-col cols="12" class="text-center" justify="center" >
             <QuestionCard 
-                questionType="POUR ou CONTRE?" 
-                question="Ceci est une longue question sur un sujet demandant l'avis des citoyens blablablabla qu'en pensez-vous blablabla?" 
+                :questionType=question.type
+                :question=question.question
             />
             <v-row justify="center" align-items="center">
                 <v-col cols="12" class="text-center">
@@ -30,6 +30,7 @@
 
 <script>
 import QuestionCard from "@/components/question/QuestionCard.vue";
+import axios from "axios";
 
 export default {
     name: "QuestionPage",
@@ -38,9 +39,19 @@ export default {
     },
     data() {
         return {
-            cameraView: require("@/assets/someone_at_bus_stop_thumbs_up.jpg")
+            cameraView: require("@/assets/someone_at_bus_stop_thumbs_up.jpg"),
+            question: ""
         };
     },
+    async mounted(){
+        this.question = await this.get_question();
+    },
+    methods: {
+        async get_question(){
+            const url = `${axios.defaults.baseURL}/question`;
+            return await axios.get(url).then(response => response.data);
+        } 
+    }
 }
 </script>
 

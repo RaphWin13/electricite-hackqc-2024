@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-btn class="mb-4 mx-auto" width="200" @click="togglePages">{{showQuestion? "Hide question" : "Show questions"}}</v-btn>
+    <v-btn class="mb-4 mx-auto" width="200" @click="togglePages">{{showQuestion? "Masquer la question" : "Afficher une question"}}</v-btn>
     <QuestionPage v-if="showQuestion" />
     <HomePage v-else />
   </v-app>
