@@ -1,9 +1,7 @@
 <template>
-  <v-app>
-    <div class="equivalence">
-      <VehiculeAnimation co2Quantity="103 tonnes" equivalence="un aller Paris-Montréal" :type=types.airplane />
-    </div>
-  </v-app>
+  <div class="equivalence">
+    <VehiculeAnimation co2Quantity="103 tonnes" equivalence="un aller Paris-Montréal" :type=types.airplane />
+  </div>
 </template>
 
 <script>
