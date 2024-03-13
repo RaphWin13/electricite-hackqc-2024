@@ -5,7 +5,7 @@
                 questionType="POUR ou CONTRE?" 
                 question="Ceci est une longue question sur un sujet demandant l'avis des citoyens blablablabla qu'en pensez-vous blablabla?" 
             />
-            <AnswerWithGesture :handleAnswer="this.handleAnswer" />
+            <AnswerQuestion :handleAnswer="this.handleAnswer" />
         </v-col>
         <ThankYouAnswerCard v-if="this.answerReady" :answer="this.currentAnswer"/>
     </v-container>
@@ -13,14 +13,14 @@
 
 <script>
 import QuestionCard from "@/components/question/QuestionCard.vue";
-import AnswerWithGesture from "@/components/question/AnswerWithGesture.vue";
+import AnswerQuestion from "@/components/question/AnswerQuestion.vue";
 import ThankYouAnswerCard from "@/components/question/ThankYouAnswerCard.vue";
 
 export default {
     name: "QuestionPage",
     components: {
         QuestionCard,
-        AnswerWithGesture,
+        AnswerQuestion,
         ThankYouAnswerCard
     },
     data() {

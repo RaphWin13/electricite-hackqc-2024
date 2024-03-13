@@ -3,11 +3,15 @@
         <v-row justify="center" align-items="center">
             <v-col cols="12" class="text-center">
                 <v-row class="align-center" justify="center">
-                    <v-icon :class="thumbUpClass" size="75px" icon="mdi-thumb-up" />
+                    <v-btn class="h-auto" @click="this.handleAnswer(1)" variant="plain">
+                        <v-icon :class="thumbUpClass" size="70px" icon="mdi-thumb-up" />
+                    </v-btn>
                     <v-card class="ma-4" title="Répondez à la caméra avec votre pouce." color="green-lighten-3" rounded="lg">
                     </v-card>
-                    <v-icon :class=this.thumbDownClass icon="mdi-thumb-down" size="75px" />
-                </v-row>
+                    <v-btn class="h-auto" @click="this.handleAnswer(0)" variant="plain">
+                        <v-icon :class=this.thumbDownClass icon="mdi-thumb-down" size="70px" />
+                    </v-btn>
+                    </v-row>
                 <p class="text-caption">Aucune image n'est enregistrée.</p>
             </v-col>
         </v-row>
@@ -21,7 +25,7 @@
 import HandRecognitionVideo from "@/components/question/HandRecognitionVideo.vue";
 
 export default {
-    name: "AnswerWithGesture",
+    name: "AnswerQuestion",
     components: {
         HandRecognitionVideo,
     },
@@ -35,7 +39,7 @@ export default {
         return {
             thumbUpClass: "undetected",
             thumbDownClass: "undetected",
-            answerCountdownTime: 3000, //3 seconds
+            answerCountdownTime: 2000, //2 seconds
             currentCountdown: null,
         };
     },
@@ -77,7 +81,7 @@ export default {
 
             this.currentCountdown = setTimeout(() => {
                 this.handleAnswer(answer);
-            }, 3000);
+            }, this.answerCountdownTime);
         },
         stopExistingTimeout() {
             if (this.currentCountdown)
@@ -95,13 +99,13 @@ export default {
 
 .thumbs-up-detected {
     color: #00FF00;
-    transition: color 3s ease-in-out;
+    transition: color 2s ease-in-out;
     animation: shake 0.5s infinite;
 }
 
 .thumbs-down-detected {
     color: #FF0000;
-    transition: color 3s ease-in-out;
+    transition: color 2s ease-in-out;
     animation: shake 0.5s infinite;
 }
 
