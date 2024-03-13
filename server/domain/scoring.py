@@ -5,6 +5,24 @@ import pytz
 
 from datetime import datetime
 
+# Load Data de Laurence
+def load_data(string_path:str, sep:str=";"
+              )->pd.DataFrame:
+    """
+    Load the data from a relative path
+    """
+    with open(string_path, "r") as f:
+        content = pd.read_csv(f, sep=sep)
+    return content 
+    
+# Create ratio File
+def createBuildingRatioFile():
+  buildingConso = load_data(r"..\infra\data\edifices_GES_electricite.csv") #Laurence file is read hree
+  lastYearDailyQuebecConso = pd.read_excel("..\infra\data\2022-sources-electricite-quebec.xlsx") #Ratio a partir de 2022
+  totalLastYearKWh = lastYearDailyQuebecConso["Total "].sum()*1000
+  buildingConso["ratio"]= buildingConso["Electricite"]/totalLastYearKWh 
+  buildingConso.to_json("..\infra\data\ratio_edifice_electricite.json") #Laurence file concat with a column of the building ratio
+
 # Get Quebec Last 24H Conso in KWh
 def getQuebecLast24HConso(dataPath = r"..\infra\data\2022-sources-electricite-quebec.csv") -> float:
   elecHistory = pd.read_csv(dataPath)
