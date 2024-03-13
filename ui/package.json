@@ -8,7 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@tensorflow-models/handpose": "^0.1.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.17.0",
     "core-js": "^3.8.3",
+    "fingerpose": "^0.1.0",
     "vue": "^3.2.13",
     "vuetify": "^3.5.8"
   },
