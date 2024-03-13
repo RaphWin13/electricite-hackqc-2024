@@ -1,0 +1,38 @@
+[
+  {
+    "data_url": "https://donnees.solutions.hydroquebec.com/donnees-ouvertes/data/json/ges-electricite.json",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/hackqc22-livraison-speciale"
+  },
+  {
+    "data_url": "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/production.json",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/sources-production-electricite-quebec"
+  },
+  {
+    "data_url": "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/demande.json",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/demande-electricite-quebec"
+  },
+  {
+    "data_url": "https://www.hydroquebec.com/data/documents-donnees/xls/suivi-2021-de-l-entente-globale-cadre.xlsx",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/historique-production-consommation"
+  },
+  {
+    "data_url": "https://donnees.montreal.ca/dataset/ec66af84-9b4b-44ec-992a-43f0a4f18512/resource/93bb6d04-6b86-4ffd-951c-e8119933fcb5/download/consommation-energetique-batiments-plus-2000m2.csv",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-consommation-emissions-batiments-municipaux"
+  },
+  {
+    "data_url": "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/csv/20221005_facteurs-directs_ges.csv?v=20221017",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/facteurs-emission-directe-ges"
+  },
+  {
+    "data_url": "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/csv/2022-10_Historique-consommation-electricite-par-secteur-activite_municipalite.csv",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/historique-consommation-electricite-secteur-activite"
+  },
+  {
+    "data_url": "https://donnees.montreal.ca/dataset/43146e84-aaed-4552-87bf-e03954b81c20/resource/4731b64f-29cc-4e08-bc44-8752ae2fcafb/download/lieux-fr.csv",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-lieux-batiments-vocation-publique"
+  },
+  {
+    "data_url": "https://www.hydroquebec.com/data/documents-donnees/donnees-ouvertes/json/Donnees_VUE_CENTRALES_ET_OUVRAGES.json",
+    "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/donnees-hydrometriques"
+  }
+]
