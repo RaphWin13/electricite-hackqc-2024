@@ -21,7 +21,7 @@ for source in sources:
       response = requests.get(data_url["url"])
 
       file_extension = data_url["url"].split(".")[-1].split("?")[0]
-      file_path = download_directory.joinpath(data_url["name"] + file_extension)
+      file_path = download_directory.joinpath(data_url["name"] + "." + file_extension)
 
       with open(file_path, mode="wb") as file:
         file.write(response.content)
