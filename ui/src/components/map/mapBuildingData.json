@@ -1,0 +1,37 @@
+{
+    "0": {
+      "Nom": "CCSE Maisonneuve",
+      "coords": {"lat": 45.5538, "lng": -73.54037},
+      "score": "C"
+    },
+    "1": {
+      "Nom": "Centre Morgan",
+      "coords": {"lat": 45.55355, "lng": -73.53818},
+      "score": "B"
+    },
+    "2": {
+      "Nom": "Maison de la Culture",
+      "coords": {"lat": 45.5512, "lng": -73.54044},
+      "score": "B"
+    },
+    "3": {
+      "Nom": "Bibliothèque Maisonneuve",
+      "coords": {"lat": 45.55062, "lng": -73.54063},
+      "score": "B"
+    },
+    "4": {
+      "Nom": "Centre social l'Achoppe",
+      "coords": {"lat": 45.55183, "lng": -73.53906},
+      "score": "D"
+    },
+    "5": {
+      "Nom": "École secondaire Chomedey-De-Maisonneuve",
+      "coords": {"lat": 45.55272, "lng": -73.53847},
+      "score": "B"
+    },
+    "6": {
+      "Nom": "Restaurant Bagatelle Bistro",
+      "coords": {"lat": 45.55296, "lng": -73.5397},
+      "score": "A"
+    }
+}

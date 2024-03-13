@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <v-btn class="mb-4 mx-auto" width="200" @click="togglePages">{{showQuestion? "Hide question" : "Show questions"}}</v-btn>
+    <v-app-bar elevation="5">
+      <v-app-bar-title>ÉlectriCITÉ</v-app-bar-title>
+    </v-app-bar>
+    <v-divider/>
+    <v-btn class="mt-6 mb-6 mx-auto" width="200" @click="togglePages">{{showQuestion? "Hide question" : "Show questions"}}</v-btn>
     <QuestionPage v-if="showQuestion" />
     <HomePage v-else />
   </v-app>
