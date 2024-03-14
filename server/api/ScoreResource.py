@@ -1,5 +1,5 @@
-from flask import Flask, jsonify
-from domain.scoring import getJsonPostionAndScoreLetter, getJsonPodiumScore
+from flask import Flask
+from domain.building_scoring import get_json_position_and_score_letter, get_json_podium_score
 
 class ScoreResource:
 
@@ -11,8 +11,8 @@ class ScoreResource:
         
         @self.__app.route('/score/letters', methods=['GET'])
         def getScoreLetters():
-            return getJsonPostionAndScoreLetter(), 200
+            return get_json_position_and_score_letter(), 200
         
         @self.__app.route('/score/podium', methods=['GET'])
         def getScorePodium():
-            return getJsonPodiumScore(), 200
+            return get_json_podium_score(), 200
