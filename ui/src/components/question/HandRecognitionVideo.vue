@@ -22,17 +22,16 @@ export default {
     data() {
         return {
             currentVideo: null,
-            currentEstimateHandsId: null
+            currentEstimateHandsId: null,
+            timeBetweenHandsEstimation: 500, // 0.5 seconds
         };
     },
     mounted() {
         this.startVideoStream();
-        this.isRecognitionActivated = true;
-        this.startRecognition()
+        this.startRecognition();
     },
     beforeUnmount() {
-        console.log("before")
-        clearTimeout(this.currentEstimateHandsId)
+        clearTimeout(this.currentEstimateHandsId);
         this.stopVideoStream();
     },
     methods: {
@@ -53,7 +52,12 @@ export default {
             ]);
             
             const estimateHands = async () => {
-                const predictions = await model.estimateHands(videoElement, true);
+                let predictions = [];
+                try {
+                    predictions = await model.estimateHands(videoElement, true);
+                } catch (error) {
+                    return;
+                }
                 if (predictions.length > 0) {
                     const estimatedGestures = GE.estimate(predictions[0].landmarks, 8.5);
                     
@@ -68,14 +72,16 @@ export default {
                     this.handleGesture('');
                 }
                 
-                this.currentEstimateHandsId = setTimeout(() => { estimateHands() }, 500)
+                this.currentEstimateHandsId = setTimeout(() => { estimateHands() }, this.timeBetweenHandsEstimation);
             };
 
             estimateHands();
         },
         stopVideoStream() {
-            this.$refs.video.srcObject.getTracks().forEach(track => track.stop());
-            this.$refs.video.srcObject = null;
+            if (this.$refs.video && this.$refs.video.srcObject) {
+                this.$refs.video.srcObject.getTracks().forEach(track => track.stop());
+                this.$refs.video.srcObject = null;
+            }
         }
     },
 };
