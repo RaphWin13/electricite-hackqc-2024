@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^1.6.7",
     "@tensorflow-models/handpose": "^0.1.0",
     "@tensorflow/tfjs-backend-webgl": "^4.17.0",
     "core-js": "^3.8.3",

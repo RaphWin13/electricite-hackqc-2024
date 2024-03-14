@@ -45,8 +45,8 @@ This project involves setting up the server and the UI separately. Follow the st
      ```bash
      python main.py
      ```
-   - The server will run at [`localhost:5000`](http://localhost:5000).
-   - You can check the server health at [`localhost:5000/health`](http://localhost:5000/health)
+   - The server will run at [`localhost:5050`](http://localhost:5000).
+   - You can check the server health at [`localhost:5050/health`](http://localhost:5000/health)
 
 ### UI Setup
 

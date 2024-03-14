@@ -2,8 +2,8 @@
     <v-container class="w-50 px-10">
         <v-col v-if="!this.answerReady" cols="12" class="text-center" justify="center" >
             <QuestionCard 
-                questionType="POUR ou CONTRE?" 
-                question="Ceci est une longue question sur un sujet demandant l'avis des citoyens blablablabla qu'en pensez-vous blablabla?" 
+                :questionType=question.type
+                :question=question.question
             />
             <AnswerQuestion :handleAnswer="this.handleAnswer" />
         </v-col>
@@ -13,6 +13,7 @@
 
 <script>
 import QuestionCard from "@/components/question/QuestionCard.vue";
+import axios from "axios";
 import AnswerQuestion from "@/components/question/AnswerQuestion.vue";
 import ThankYouAnswerCard from "@/components/question/ThankYouAnswerCard.vue";
 
@@ -26,14 +27,22 @@ export default {
     data() {
         return {
             currentAnswer: null,
-            answerReady: false
+            answerReady: false,
+            question: ""
         };
+    },
+    async mounted(){
+        this.question = await this.get_question();
     },
     methods: {
         handleAnswer(answer) {
             this.answerReady = true;
             this.currentAnswer = answer;
-        }
+        },
+        async get_question(){
+            const url = `${axios.defaults.baseURL}/question`;
+            return await axios.get(url).then(response => response.data);
+        }, 
     }
 }
 </script>

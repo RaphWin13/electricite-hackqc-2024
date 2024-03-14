@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Nom;Superficie;Emissions_GES;Electricite;Latitude;Longitude;Reconstruite
 CCSE Maisonneuve;3438;76.23;418021;45.5538;-73.54037;Non
 Centre Morgan;2457;116.44;306122;45.55355;-73.53818;Non
@@ -5,4 +6,13 @@ Maison de la Culture;2125;0.98;650749;45.5512;-73.54044;Non
 Bibliothèque Maisonneuve;4471;13.05;642037;45.55062;-73.54063;Non
 Centre social l’Achoppe;4910;97.43;80080;45.55183;-73.53906;Oui
 École secondaire Chomedey-De-Maisonneuve;8066;2.31;1542329;45.55272;-73.53847;Oui
+=======
+Nom;Superficie;Emissions_GES;Electricite;Latitude;Longitude;Reconstruite
+CCSE Maisonneuve;3438;76.23;418021;45.5538;-73.54037;Non
+Centre Morgan;2457;116.44;306122;45.55355;-73.53818;Non
+Maison de la Culture;2125;0.98;650749;45.5512;-73.54044;Non
+Bibliothèque Maisonneuve;4471;13.05;642037;45.55062;-73.54063;Non
+Centre social l’Achoppe;4910;97.43;80080;45.55183;-73.53906;Oui
+École secondaire Chomedey-De-Maisonneuve;8066;2.31;1542329;45.55272;-73.53847;Oui
+>>>>>>> 58ff2f8129bd476d14e6adaca951c337135c928c
 Restaurant Bagatelle Bistro;2643;18;456263;45.55296;-73.5397;Oui
