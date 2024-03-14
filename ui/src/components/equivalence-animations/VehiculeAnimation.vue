@@ -1,7 +1,7 @@
 <template>
   <v-row class="animation" justify="center" align-items="center">
-    <v-sheet class="flag py-1" elevation="24" height="50" width="300" rounded="lg" color="green-lighten-3">
-        <p class="font-weight-black">{{co2Quantity}} de CO₂</p>
+    <v-sheet class="flag py-1" elevation="24" height="75" width="300" rounded="lg" color="green-lighten-3">
+        <p class="font-weight-black">{{co2Quantity}}</p>
         <p>équivaut à {{equivalence}}</p>
     </v-sheet>
     <v-icon class="animated-vehicule ml-2" size="60" :icon=icons[type] :class="type" elevation="24"/>
