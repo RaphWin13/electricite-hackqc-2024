@@ -8,8 +8,8 @@ def load_data(string_path:str, sep:str=";"
     """
     Load the data from a relative path
     """
-    with open(string_path, "r") as f:
-        content = pd.read_csv(f, sep=sep)
+    with open(string_path, "r", encoding="utf-8") as f:
+        content = pd.read_csv(f, sep=sep, encoding="utf-8")
     return content
 
 # --------------- Questions --------------------------#
