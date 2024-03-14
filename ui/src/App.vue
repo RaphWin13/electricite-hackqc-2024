@@ -4,7 +4,7 @@
       <v-app-bar-title>ÉlectriCITÉ</v-app-bar-title>
     </v-app-bar>
     <v-divider/>
-    <v-btn class="my-4 mx-auto" width="200" @click="togglePages">{{showQuestion? "Masquer la question" : "Afficher une question"}}</v-btn>
+    <v-btn class="my-4 mx-auto" width="210" @click="togglePages">{{showQuestion? "Masquer la question" : "Afficher une question"}}</v-btn>
     <QuestionPage v-if="showQuestion" />
     <HomePage v-else />
   </v-app>
