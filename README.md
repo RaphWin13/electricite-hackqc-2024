@@ -60,13 +60,19 @@ This project involves setting up the server and the UI separately. Follow the st
      npm install
      ```
 
-3. Run the UI in Development Mode (with Hot-Reloading):
+3. Add your Google Maps API key to the `.env` file:
+     - Create a .env file based on the .env.example file and add your Google Maps API key:
+     ```bash
+     VUE_APP_GOOGLE_MAPS_API_KEY=YOUR_API_KEY
+     ```
+
+4. Run the UI in Development Mode (with Hot-Reloading):
      ```bash
      npm run serve
      ```
      - The UI will run at [`localhost:8080`](http://localhost:8080).
 
-4. Production Build:
+5. Production Build:
      ```bash
      npm run build
      ```
