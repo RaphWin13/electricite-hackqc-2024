@@ -3,11 +3,11 @@
     "data_urls": [
       {
         "name": "2022-sources-electricite-quebec",
-        "url": "https://donnees.montreal.ca/dataset/ec66af84-9b4b-44ec-992a-43f0a4f18512/resource/93bb6d04-6b86-4ffd-951c-e8119933fcb5/download/consommation-energetique-batiments-plus-2000m2.csv"
+        "url": "https://www.donneesquebec.ca/recherche/dataset/d744d7ca-43ac-424b-9dbd-a28bb3266304/resource/7a179590-a39b-4bfd-ac0b-3d3fd9a23aed/download/2022-sources-electricite-quebec.csv"
       },
       {
         "name": "2021-sources-electricite-quebec",
-        "url": "https://www.donneesquebec.ca/recherche/dataset/d744d7ca-43ac-424b-9dbd-a28bb3266304/resource/56a0db3d-d21f-4bc9-a8f7-1ff3688e736f/download/2021-sources-electricite-quebec.xlsx"
+        "url": "https://www.donneesquebec.ca/recherche/dataset/d744d7ca-43ac-424b-9dbd-a28bb3266304/resource/b0068387-dcce-4133-ac4b-87e15c6bb4be/download/2021-sources-electricite-quebec.csv"
       }
     ],
     "license_info_url": "https://www.donneesquebec.ca/recherche/dataset/vmtl-consommation-emissions-batiments-municipaux"

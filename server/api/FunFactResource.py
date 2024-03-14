@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from domain.fichierDeCalcul import get_fun_fact
+from domain.data_accessors import get_fun_fact
 
 class FunFactResource:
 
