@@ -21,10 +21,10 @@ def load_csv(string_path:str, sep:str=",", parse_dates=None)->pd.DataFrame:
     
 def create_building_ratio_file():
   buildingConsumption = load_csv(EDIFICES_FILE, sep=';') #Laurence file is read hree
-  lastYearDailyQuebecConsumption = load_csv("infra/data/download/2022-sources-electricite-quebec.csv", parse_dates=["Date"]) #Ratio a partir de 2022
+  lastYearDailyQuebecConsumption = load_csv(SOURCES_2022_FILE, parse_dates=["Date"]) #Ratio a partir de 2022
   totalLastYearKWh = lastYearDailyQuebecConsumption["Total "].sum()*1000
   buildingConsumption["ratio"]= buildingConsumption["Electricite"]/totalLastYearKWh 
-  buildingConsumption.to_json("infra/data/ratio_edifice_electricite.json") #Laurence file concat with a column of the building ratio
+  buildingConsumption.to_json(RATIO_FILE) #Laurence file concat with a column of the building ratio
 
 def get_last_24h_consumption(dataPath = SOURCES_2022_FILE) -> float:
   elecHistory = pd.read_csv(dataPath)
