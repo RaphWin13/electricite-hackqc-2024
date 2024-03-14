@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from domain.fichierDeCalcul import get_question, log_answer
+from domain.data_accessors import get_question, log_answer
 
 class QuestionResource:
 
