@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from pathlib import Path
+import os
 
 def load_data(string_path:str, sep:str=";"
               )->pd.DataFrame:
@@ -24,10 +26,10 @@ def get_question(specific_type:int = None
     if specific_type is not None:
         questions = questions[questions["Type"]==specific_type]
     # Random index to generate a random question
-    idx = np.random.randint(0, len(questions), 1)
-    quest = questions.loc[idx,"Question"].values[0]
-    type = questions.loc[idx,"Type"].values[0]
-    return quest, str(type)
+    id = np.random.randint(0, len(questions), 1)[0]
+    quest = questions.loc[id,"Question"]
+    type = questions.loc[id,"Type"]
+    return quest, str(type), str(id)
 
 # ------------------- Fun facts ------------------------ #
 def get_fun_fact()->tuple[str, float]:
@@ -41,6 +43,26 @@ def get_fun_fact()->tuple[str, float]:
     fact = funfact.loc[idx,"valeur"].values[0]
     equiv = funfact.loc[idx,"equivalence"].values[0]
     return fact, equiv
+
+# ------------------- log answer data --------------------- #
+def log_answer(question_id, answer):
+    print(question_id, answer)
+    # Create file if it does not exist
+    if not Path("infra/data/answers.csv").exists():
+        questions = pd.read_csv("infra/data/questions.csv")
+        num_questions = questions.shape[0]
+        new_df = pd.DataFrame({"ID":range(num_questions), "0":np.repeat(0, num_questions), "1":np.repeat(0, num_questions)})
+        new_df.to_csv("infra/data/answers.csv", index=False)
+
+    # Load the values of the question
+    question_info = pd.read_csv("infra/data/answers.csv")
+
+    # Save the answer to the cumulative sum corresponding (1 : yes, 0 : no)
+    question_info.loc[question_info["ID"] == int(question_id), str(answer)] += 1
+
+    # Save update dataframe
+    question_info.to_csv("infra/data/answers.csv", index=False)
+    return "Logging successful"
 
 # ------------------ Consumption per map sector -------------- #
 def consumption_per_sector():
