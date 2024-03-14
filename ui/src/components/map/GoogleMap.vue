@@ -4,25 +4,21 @@
   :center="center"
   :zoom="17"
   >
-    <Marker v-for="batiment in batiments" :key="batiment" :options="{ position: batiment.coords, color: '#00FF00' }">
-      <InfoWindow :options="{ position: batiment.coords, content: batiment.Nom }" />
+    <InfoWindow v-for="batiment in batiments" :key="batiment" 
+    :options="{ position: this.getInfoWindowPosition(batiment), content: batiment.Nom, maxWidth: 150}" />
+    <Marker v-for="batiment in batiments" :key="batiment" :options="{ position: batiment.coords, 
+      icon: {path: mdiMapMarker, scale: 2, fillColor: scoreColor[batiment.score], fillOpacity: 1, strokeWeight: 0, anchor:{x:15, y:20}}}" >
+      <InfoWindow :options="{ content: batiment.Nom, maxWidth: 150}" />
     </Marker>
-    <Rectangle v-for="batiment in batiments" :key="batiment" :options="{
-      strokeColor: strokeColor.red,
-      bounds: {
-        north: batiment.coords.lat+0.0003,
-        south: batiment.coords.lat-0.0002,
-        east: batiment.coords.lng+0.0002,
-        west: batiment.coords.lng-0.0002
-      }
-    }" />
   </GoogleMap>
 </template>
   
 <script setup>
-import { GoogleMap, Marker, InfoWindow, Rectangle } from "vue3-google-map";
+import { GoogleMap, Marker , InfoWindow } from "vue3-google-map";
+import { mdiMapMarker } from '@mdi/js';
 
 const center = {lat: 45.5538, lng: -73.54037}
+
 
 const batiments = {
     "0": {
@@ -47,7 +43,7 @@ const batiments = {
     },
     "4": {
       "Nom": "Centre social l'Achoppe",
-      "coords": {lat: 45.55183, lng: -73.53906},
+      "coords": {"lat": 45.55178, "lng": -73.53816},
       "score": "D"
     },
     "5": {
@@ -62,10 +58,31 @@ const batiments = {
     }
 }
 
-const strokeColor = {
-  green: "#00FF00",
-  yellow: "#FFFF00",
-  red: "#FF0000"
+const scoreColor = {
+  "A": "#00FF00", // green
+  "B": "#FFD700", // yellow
+  "C": "#FF8C00", // orange
+  "D": "#FF0000", // red
+  "E": "#FF0000" // red
 }
 
 </script>
+
+<script>
+export default {
+  name: "GoogleMap",
+  methods: {
+    getInfoWindowPosition(batiment) {
+      return {lat: batiment.coords.lat + 0.00025, lng: batiment.coords.lng - 0.00005}
+    }
+  },
+}
+</script>
+
+<style>
+  .gm-style-iw {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+</style>
