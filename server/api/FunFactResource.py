@@ -12,4 +12,4 @@ class FunFactResource:
         @self.__app.route('/funfact', methods=['GET'])
         def get_funfact():
             fact, conversion = get_fun_fact()
-            return jsonify({"fact": fact, "conversion": conversion})
+            return jsonify({"fact": fact, "equivalence": conversion})

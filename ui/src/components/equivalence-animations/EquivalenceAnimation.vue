@@ -3,7 +3,7 @@
     <div class="equivalence">
       <VehiculeAnimation 
           :co2Quantity=funfact.fact
-          :equivalence=funfact.fact
+          :equivalence=funfact.equivalence
           :type=types.airplane />
     </div>
   </v-app>
