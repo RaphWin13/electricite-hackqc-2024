@@ -38,11 +38,18 @@ export default {
         handleAnswer(answer) {
             this.answerReady = true;
             this.currentAnswer = answer;
+            this.logAnswer = this.log_answer()
         },
         async get_question(){
             const url = `${axios.defaults.baseURL}/question`;
             return await axios.get(url).then(response => response.data);
         }, 
+        async log_answer(){
+            const url = `${axios.defaults.baseURL}/question`;
+            console.log(this.question)
+            return await axios.post(url,{"answer":this.currentAnswer, "id":this.question.id});
+        }
+
     }
 }
 </script>
