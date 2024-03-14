@@ -36,7 +36,7 @@ def getQuebecLast24HConso(dataPath = SOURCES_2022_FILE) -> float:
 
 #Get building ratio
 def getRatio()->pd.Series:
-  return pd.read_json(RATIO_FILE, encoding="utf-8")["ratio"]
+  return pd.read_json(RATIO_FILE)["ratio"]
 
 # Get building Last 24H conso in KWh
 def getBatLast24HConso()->list[float]:
