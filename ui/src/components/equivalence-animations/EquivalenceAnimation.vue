@@ -1,12 +1,10 @@
 <template>
-  <v-app>
-    <div class="equivalence">
+    <div class="my-4">
       <VehiculeAnimation 
           :co2Quantity=funfact.fact
           :equivalence=funfact.equivalence
           :type=types.airplane />
     </div>
-  </v-app>
 </template>
 
 <script>

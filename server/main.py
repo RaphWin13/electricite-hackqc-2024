@@ -7,7 +7,7 @@ from api.FunFactResource import FunFactResource
 from api.ScoreResource import ScoreResource
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:8080"}})
+CORS(app, resources={r"/*": {"origins": ["http://127.0.0.1:8080", "http://localhost:8080"]}})
 
 health = HealthResource(app)
 score = ScoreResource(app)
