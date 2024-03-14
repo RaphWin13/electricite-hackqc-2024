@@ -19,7 +19,7 @@ def get_question(specific_type:int = None
     Type 2 questions are "Do you encourage this"
     """
     
-    questions = load_data("infra/data/questions.csv") # Can we load this only once when building the project?
+    questions = load_data("infra/data/questions.csv")
     # If we want a specific question type
     if specific_type is not None:
         questions = questions[questions["Type"]==specific_type]
@@ -27,27 +27,20 @@ def get_question(specific_type:int = None
     idx = np.random.randint(0, len(questions), 1)
     quest = questions.loc[idx,"Question"].values[0]
     type = questions.loc[idx,"Type"].values[0]
-    return quest, str(type) # Change les données str
+    return quest, str(type)
 
-# ------------------- Conversions ----------------------- #
-def convert_GES_to_flights(ges: float)->float:
+# ------------------- Fun facts ------------------------ #
+def get_fun_fact()->tuple[str, float]:
     """
-    Convert a GES (en tonnes) into a number of flights (MTL) YUL->CDG (Paris)
+    Return a random fun fact.
     """
-    # 1.5 tonnes per flight YUL -> CDG
-    # https://calculator.carbonfootprint.com/calculator.aspx?tab=3 
-    if ges % 1.5 == 0:
-        return int(ges / 1.5)
-    else:
-        return np.round(ges / 1.5, 1)
-
-def convert_energy_to_ges():
-    """
-    Convert an energy consumption into a ges emission
-    """
-    # 34.5 g per kWh of energy
-    # https://www.hydroquebec.com/developpement-durable/documentation-specialisee/taux-emission-ges.html#:~:text=Pour%20calculer%20ces%20derni%C3%A8res%20%C3%A9missions,l'%C3%A9lectricit%C3%A9%20achet%C3%A9e%20et%20import%C3%A9e.
-    pass # Can use the ges column in the data
+    funfact = load_data("infra/data/fun_facts.csv")
+    
+    # Random index to generate a random question
+    idx = np.random.randint(0, len(funfact), 1)
+    fact = funfact.loc[idx,"valeur"].values[0]
+    equiv = funfact.loc[idx,"equivalence"].values[0]
+    return fact, equiv
 
 # ------------------ Consumption per map sector -------------- #
 def consumption_per_sector():
@@ -60,13 +53,3 @@ def consumption_per_sector():
     # Loop over all sections of the map
     for g, sector in data.groupby("Arrondissement"):
         aggregated_data.loc[len(aggregated_data.index)] = [g, sector["Electricite"].sum(), sector["Emissions_GES"].sum()]
-        # TODO : Extract lat-long square coordinates (min and max in both directions)
-    print(aggregated_data)
-#consumption_per_sector()
-
-# En temps réel (recalculer)
-# - Ratio pour avoir la valeur par bâtisse le jour
-# - Prendre ces valeurs là pour aggréger
-# - Extraire min et max pour polygones
-# -- Map, connecter les questions
-# - coordonnées arrondissements
