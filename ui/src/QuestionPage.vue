@@ -1,45 +1,33 @@
 <template>
-    <v-container full-height class="w-50 px-10">
-        <v-col cols="12" class="text-center" justify="center" >
+    <v-container class="w-50 px-10">
+        <v-col v-if="!this.answerReady" cols="12" class="text-center" justify="center" >
             <QuestionCard 
                 :questionType=question.type
                 :question=question.question
             />
-            <v-row justify="center" align-items="center">
-                <v-col cols="12" class="text-center">
-                    <v-row class="align-center" justify="center">
-                        <v-icon icon="mdi-thumb-up" size="75px"/>
-                        <v-card class="ma-4" title="Répondez à la caméra avec votre pouce." color="green-lighten-3" rounded="lg">
-                        </v-card>
-                        <v-icon icon="mdi-thumb-down" size="75px"/>
-                    </v-row>
-                    <p class="text-caption">Aucune image n'est enregistrée.</p>
-                </v-col>
-            </v-row>
-            <v-row class="w-50 mx-auto" justify="center" align-items="center">
-                <v-img
-                :height="500"
-                cover
-                :src=cameraView
-                rounded="circle"
-                ></v-img>
-            </v-row>
+            <AnswerQuestion :handleAnswer="this.handleAnswer" />
         </v-col>
+        <ThankYouAnswerCard v-if="this.answerReady" :answer="this.currentAnswer"/>
     </v-container>
 </template>
 
 <script>
 import QuestionCard from "@/components/question/QuestionCard.vue";
 import axios from "axios";
+import AnswerQuestion from "@/components/question/AnswerQuestion.vue";
+import ThankYouAnswerCard from "@/components/question/ThankYouAnswerCard.vue";
 
 export default {
     name: "QuestionPage",
     components: {
-        QuestionCard
+        QuestionCard,
+        AnswerQuestion,
+        ThankYouAnswerCard
     },
     data() {
         return {
-            cameraView: require("@/assets/someone_at_bus_stop_thumbs_up.jpg"),
+            currentAnswer: null,
+            answerReady: false,
             question: ""
         };
     },
@@ -47,10 +35,14 @@ export default {
         this.question = await this.get_question();
     },
     methods: {
+        handleAnswer(answer) {
+            this.answerReady = true;
+            this.currentAnswer = answer;
+        },
         async get_question(){
             const url = `${axios.defaults.baseURL}/question`;
             return await axios.get(url).then(response => response.data);
-        } 
+        }, 
     }
 }
 </script>
