@@ -7,7 +7,11 @@ EDIFICES_FILE = r"infra/data/edifices_GES_electricite.csv"
 RATIO_FILE = r"infra/data/ratio_edifice_electricite.json"
 SOURCES_2022_FILE = r"infra/data/download/2022-sources-electricite-quebec.csv"
 SOURCES_2021_FILE = r"infra/data/download/2021-sources-electricite-quebec.csv"
-
+CO2_G_AIRPLANE_TRAVEL_MTL_PARIS = 1000000
+CO2_G_AIRPLANE_TRAVEL_MTL_NY = 100000
+CO2_G_PAR_KWH = 34.5
+CO2_G_PAR_KM_AUTO = 82
+DISTANCE_QC_MTL_KM = 233
 # All consumption in KWh
 
 # Load Data de Laurence
@@ -87,11 +91,7 @@ def get_json_position_and_score_letter()-> str:
 # Get JsonFormat for top 3 building with name position and numeric score
 def get_json_podium_score()->str:
   batData = pd.read_json(RATIO_FILE)
-  batData["score"] = compute_numeric_score()
-  return batData[["Nom","Latitude","Longitude","score"]].sort_values(by=['score']).iloc[:3].reset_index(drop=True).to_json(orient="index", force_ascii=False)
-
-# Get JsonFormat for top 3 building with name position and numeric score
-def get_json_podium_consumption()->str:
-  batData = pd.read_json(RATIO_FILE)
-  batData["score"] = compute_numeric_score()*get_weighed_daily_average_of_last_year_monthly_consumption() * (365*3.5/1500000)
-  return batData[["Nom","Latitude","Longitude","score"]].sort_values(by=['score']).iloc[:3].reset_index(drop=True).to_json(orient="index")
+  num_score = compute_numeric_score()
+  batData["score"] = num_score
+  batData["eq_airplane"] = num_score*get_weighed_daily_average_of_last_year_monthly_consumption() * (CO2_G_PAR_KWH/CO2_G_AIRPLANE_TRAVEL_MTL_NY)
+  return batData[["Nom","Latitude","Longitude","score", "eq_airplane"]].sort_values(by=['score']).iloc[:3].reset_index(drop=True).to_json(orient="index", force_ascii=False)

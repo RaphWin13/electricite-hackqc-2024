@@ -10,12 +10,13 @@ import * as directives from 'vuetify/directives'
 
 axios.defaults.baseURL = "http://127.0.0.1:5050";
 
+
 const vuetify = createVuetify({
     components,
     directives,
     icons: {
         defaultSet: "mdi",
-    },
+    }
 });
 
 createApp(App).use(vuetify).mount('#app')

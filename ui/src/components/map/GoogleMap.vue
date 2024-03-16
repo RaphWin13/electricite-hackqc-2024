@@ -1,16 +1,18 @@
 <template>
-  <GoogleMap :api-key="googleMapsApiKey"
-  style="width: 100%; height: 80vh; margin-top: 70px;"
-  :center="center"
-  :zoom="17"
-  >
-    <InfoWindow v-for="batiment in buildings" :key="batiment" 
-    :options="{ position: getInfoWindowPosition(batiment), content: batiment.Nom, maxWidth: 150}" />
-    <Marker v-for="batiment in buildings" :key="batiment" :options="{ position: {lat: batiment.Latitude, lng: batiment.Longitude}, 
-      icon: {path: mdiMapMarker, scale: 2, fillColor: scoreColor[batiment.score], fillOpacity: 1, strokeWeight: 0, anchor:{x:15, y:20}}}" >
-      <InfoWindow :options="{ content: batiment.Nom, maxWidth: 150}" />
-    </Marker>
-  </GoogleMap>
+  <v-card class="mx-auto mb-9 justify-lg-center" variant ="outlined" width="95%">
+    <GoogleMap :api-key="googleMapsApiKey"
+    style="width: 100%; height: 80vh;"
+    :center="center"
+    :zoom="17"
+    >
+      <InfoWindow v-for="batiment in buildings" :key="batiment" 
+      :options="{ position: getInfoWindowPosition(batiment), content: batiment.Nom, maxWidth: 150}" />
+      <Marker v-for="batiment in buildings" :key="batiment" :options="{ position: {lat: batiment.Latitude, lng: batiment.Longitude}, 
+        icon: {path: mdiMapMarker, scale: 2, fillColor: scoreColor[batiment.score], fillOpacity: 1, strokeWeight: 0, anchor:{x:15, y:20}}}" >
+        <InfoWindow :options="{ content: batiment.Nom, maxWidth: 150}" />
+      </Marker>
+    </GoogleMap>
+  </v-card>
 </template>
   
 <script setup>
