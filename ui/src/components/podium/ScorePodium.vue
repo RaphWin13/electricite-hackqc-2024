@@ -9,28 +9,34 @@
       >
         <p class="font-weight-black podium-rank">2</p>
         <p><i>{{standings["1"]["Nom"]}}</i></p>
-        <p>Réduction: <strong>{{standings["1"]["score"]}}</strong></p>
+        <p> Réduction: <strong>{{standings["1"]["score"]}}</strong></p>
+        <p class="text-subtitle-1"> Économies équivalentes à {{standings["1"]["eq_airplane"]}} <v-icon class="mt-2">mdi-airplane</v-icon> </p>
       </v-sheet>
       <v-sheet
         class="py-1 rounded-t-xl"
-        height="155"
+        height="165"
         width="300"
         color="green-accent-3"
       >
         <p class="font-weight-black podium-rank">1</p>
         <p><i>{{standings["0"]["Nom"]}}</i></p>
-        <p>Réduction:  <strong>{{standings["0"]["score"]}}</strong></p>
+        <p >Réduction:  <strong>{{standings["0"]["score"]}}</strong></p>
+        <p>Économies équivalentes à {{standings["0"]["eq_airplane"]}} <v-icon class="mt-2">mdi-airplane</v-icon> </p>
       </v-sheet>
       <v-sheet
         class="py-1 rounded-t-xl"
-        height="105"
+        height="115"
         width="300"
         color="light-green-lighten-1"
       >
         <p class="font-weight-black podium-rank">3</p>
         <p><i>{{standings["2"]["Nom"]}}</i></p>
         <p>Réduction: <strong>{{standings["2"]["score"]}}</strong></p>
+        <p> Économies équivalentes à {{standings["2"]["eq_airplane"]}} <v-icon class="mt-2">mdi-airplane</v-icon> </p>
       </v-sheet>
+    </v-row>
+    <v-row align="center" justify="center">
+      <p > <v-icon class="mt-2">mdi-airplane</v-icon> : voyage d'avion Montréal / New-York </p>
     </v-row>
   </v-container>
 </template>
@@ -52,7 +58,8 @@ export default {
     for (let position in ["0", "1", "2"]) {
       newStandings[position] = {
         "Nom": rawStandings[position]["Nom"],
-        "score": this.computeReductionPercentDisplay(rawStandings[position]["score"])
+        "score": this.computeReductionPercentDisplay(rawStandings[position]["score"]),
+        "eq_airplane": this.computeReductionPercentDisplay(rawStandings[position]["eq_airplane"])
       }
     }
 
