@@ -1,6 +1,6 @@
 <template>
   <EquivalenceAnimation />
-  <ScorePodium style="margin-top: 5em" />
+  <ScorePodium style="margin-top: 7em" />
   <GoogleMap />
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto my-8 justify-lg-center" variant ="outlined" width="95%">
+  <v-card class="mx-auto mb-9 justify-lg-center" variant ="outlined" width="95%">
     <GoogleMap :api-key="googleMapsApiKey"
     style="width: 100%; height: 80vh;"
     :center="center"

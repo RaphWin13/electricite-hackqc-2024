@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar elevation="5">
-      <v-app-bar-title>ÉlectriCITÉ</v-app-bar-title>
+      <v-app-bar-title class="font-weight-bold">ÉlectriCITÉ</v-app-bar-title>
     </v-app-bar>
     <v-btn class="my-6 mx-auto" variant="outlined" width="auto" @click="togglePages">{{showQuestion? "Masquer la question" : "Afficher une question"}}</v-btn>
     <QuestionPage v-if="showQuestion" />

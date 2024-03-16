@@ -1,7 +1,6 @@
 <template>
-  <v-card class="mx-auto pt-2 pb-5" variant="outlined" width="95%">
-    <v-card-title>Score</v-card-title>
-    <v-divider class="mb-5"></v-divider>
+  <v-card class="mx-auto pt-2 pb-5" variant="flat" width="95%">
+    <v-card-title class="font-weight-bold mb-3">Podium des réductions énergétiques du quartier aujourd'hui</v-card-title>
     <v-container>
       <v-row align="end" justify="center">
         <v-sheet
@@ -41,11 +40,10 @@
       <v-row class="pt-4" align="center" justify="center">
         <p > <v-icon class="mt-2">mdi-airplane</v-icon> : voyage d'avion Montréal / New-York </p>
       </v-row>
-      <v-divider class="my-6"></v-divider>
-        <v-card>
-          <v-card-title>Visualiser les réductions du quartier aujourd'hui</v-card-title>
-          <v-card-text>comparé à la moyenne du mois de l'année précédente</v-card-text>
-        </v-card>
+      <v-card variant="flat" class="mt-6">
+        <v-card-title>Visualiser les réductions du quartier aujourd'hui</v-card-title>
+        <v-card-text>comparé à la moyenne du mois de l'année précédente</v-card-text>
+      </v-card>
     </v-container>
   </v-card>
 </template>
@@ -93,5 +91,9 @@ export default {
 <style>
   .podium-rank {
     font-size: larger;
+  }
+
+  .v-card {
+    background-color: #F6FAE9 !important;
   }
 </style>

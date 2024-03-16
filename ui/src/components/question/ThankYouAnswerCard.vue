@@ -1,5 +1,5 @@
 <template>
-    <v-card class="ma-4" title="Merci pour votre réponse!" color="white" rounded="lg">
+    <v-card variant="flat" class="ma-4" title="Merci pour votre réponse!" color="#F6FAE9" rounded="lg">
         <v-card-text>
             <v-icon :icon="this.answersIcon[this.answer]" size="75px"></v-icon>
         </v-card-text>
