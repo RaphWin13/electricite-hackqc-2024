@@ -5,7 +5,7 @@
       <v-row align="end" justify="center">
         <v-sheet
           class="py-1 rounded-t-xl"
-          height="130"
+          height="155"
           width="300"
           color="green-lighten-2"
         >
@@ -16,7 +16,7 @@
         </v-sheet>
         <v-sheet
           class="py-1 rounded-t-xl"
-          height="165"
+          height="190"
           width="300"
           color="green-accent-3"
         >
@@ -27,7 +27,7 @@
         </v-sheet>
         <v-sheet
           class="py-1 rounded-t-xl"
-          height="115"
+          height="140"
           width="300"
           color="light-green-lighten-1"
         >
