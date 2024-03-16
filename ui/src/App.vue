@@ -3,8 +3,7 @@
     <v-app-bar elevation="5">
       <v-app-bar-title>ÉlectriCITÉ</v-app-bar-title>
     </v-app-bar>
-    <v-divider/>
-    <v-btn class="my-4 mx-auto" width="210" @click="togglePages">{{showQuestion? "Masquer la question" : "Afficher une question"}}</v-btn>
+    <v-btn class="my-6 mx-auto" variant="outlined" width="auto" @click="togglePages">{{showQuestion? "Masquer la question" : "Afficher une question"}}</v-btn>
     <QuestionPage v-if="showQuestion" />
     <HomePage v-else />
   </v-app>
@@ -41,5 +40,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background: "#F6FAE9" !important;
+}
+
+.v-application {
+  background-color: #F6FAE9 !important;
 }
 </style>
