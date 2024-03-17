@@ -7,7 +7,7 @@ Data from the following sources is used. License information can be viewed by fo
 | Dataset name         | URL     | Modifications |
 |--------------|-----------|------------|
 | Sources de l’électricité produite au Québec | https://www.donneesquebec.ca/recherche/dataset/sources-production-electricite-quebec | None |
-| Consommation d'énergie et émissions de gaz à effet de serre des bâtiments municipaux de 2000 m² et plus | https://www.donneesquebec.ca/recherche/dataset/vmtl-consommation-emissions-batiments-municipaux | 5 buildings were selected from the original data and 3 were reconstructed by matching data from different existing ones with names that were not in the dataset. In all cases, geographical coordinates were added using Google Maps. A random variation on the consumption is applied at boot time to allow for hypothetical comparison by time. A section of the original data is also used to compute geographical zones. |
+| Consommation d'énergie et émissions de gaz à effet de serre des bâtiments municipaux de 2000 m² et plus | https://www.donneesquebec.ca/recherche/dataset/vmtl-consommation-emissions-batiments-municipaux | 3 new buildings were reconstructed by matching data from different existing ones with names that were not in the dataset. Some building names were shortened. For all buildings, geographical coordinates were added using Google Maps. A random variation on the consumption is applied at boot time to allow for hypothetical comparison by time. |
 
 ## Project Setup
 
