@@ -40,7 +40,13 @@ This project involves setting up the server and the UI separately. Follow the st
      python download.py
      ```
 
-6. Run the Server:
+6. Add your Google API key to the `.env` file:
+     - Create a .env file based on the .env.example file and add your Google API key:
+     ```bash
+     GOOGLE_GEOCODE_API_KEY=YOUR_API_KEY
+     ```
+
+7. Run the Server:
    - Start the server using the main Python file:
      ```bash
      python main.py
